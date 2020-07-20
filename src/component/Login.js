@@ -32,13 +32,13 @@ loginUser = (e) => {
             <span className="signin"><h5>Sign In</h5></span>
             <form onSubmit={this.loginUser}>
             
-            <input type="text" name="username" 
+            <input type="text" name="username" className="loginput"
             value={this.state.username} 
             onChange={this.enterUser} placeholder="username"/>
-            <input type="password" name="password" 
+            <input type="password" name="password"className="loginput"
             value={this.state.password} 
             onChange={this.enterPassword} placeholder="password"/>
-            <button type="submit">Login</button>
+            <button className="btnlogin" type="submit">Login</button>
             <div> 
     <span className="psw">Forgot <Link to="/">password?</Link></span>
     

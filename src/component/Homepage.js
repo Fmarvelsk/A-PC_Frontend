@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import CandidateList from './CandidateList';
-import addCandidate from './addCandidate'
+import addCandidate from './addCandidate';
+import addAcessor from './addAcessor'
 
 export class Homepage extends Component {
     state = {
@@ -36,22 +37,24 @@ export class Homepage extends Component {
     
     render(){
         return(
-            <Router>
+            <Switch>
+            <>
             <div className="home-body">
             <Navbar />
-            <Route path="/cand" render= { props =>
+            <Route path="/home/cand" render= { props =>
                 <React.Fragment>
                 <CandidateList candidate={this.state.candidate} viewCandidate={this.viewCandidate}/>
                 {console.log(props)}
                 </React.Fragment>
             } />
-            <Route path="/addCandidate" component={addCandidate}/>
-            
-            
-        
-            
+            <Route path="/home/addcandidate" component={addCandidate}/>
+            <Route path="/home/addAcessor" component={addAcessor} />
             </div>
-            </Router>
+        
+            </>
+            </Switch>
+        
+
         )
     }
 }

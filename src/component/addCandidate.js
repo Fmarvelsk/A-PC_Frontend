@@ -27,11 +27,30 @@ class addCandidate extends Component{
     onchangeEventLevel = (e) => {
         this.setState({[e.target.name] : e.target.value})
     }
+    addCandidate = (e) => {
+        e.preventDefault()
+        const newCandidate = {
+            surname : this.state.surname,
+            otherName : this.state.otherName,
+            email : this.state.email,
+            faculty : this.state.department,
+            present_level : this.state.present_level
+        }
+        console.log(newCandidate)
+        this.setState({
+            surname: '',
+            otherName: '',
+            email: '',
+            faculty: '',
+            department: '',
+            present_level:''
+        })
+    }
 
     render(){
         return(
-            <div className="container container-fluid login-container">
-            <form onSubmit= {this.addCandidate}>
+            <div className="container container-fluid padding">
+            <form onSubmit= {this.addCandidate} className="paddingf">
             <input type="text" 
             value={this.state.Surname} name="Surname"
             onChange={this.onchangeEvent} placeholder='Surname'/>
