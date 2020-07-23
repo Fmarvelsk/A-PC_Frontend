@@ -44,13 +44,6 @@ class addAcessor extends Component{
     AcessorNumber = (e) => {
         this.setState({ [e.target.name]:e.target.value}) 
     }
-    AcessorNumber1 =(e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
-    AcessorName1 = (e) => {
-        this.setState({ [e.target.name]:e.target.value})
-    }
-
 
         render(){
             return(
@@ -59,34 +52,20 @@ class addAcessor extends Component{
                 <h3>Candidate name</h3>
                 </div>
                 <div className="row">
-                <div className="col-sm-4 col-md-4 col-xl-4 mb-5">
+                {this.state.Accessor.map( (Accessor, key) =>
+                <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={key}>
                 <div className="width">
-                <input type='text' value={this.state.Accessor.Fullname} name="Fullname" onChange={this.AcessorName} placeholder="Fullname"/>
-                <input type='text' value={this.state.Accessor.University} name="University" onChange={this.AcessorUniversity} placeholder="University"/>
-                <input type='text' value={this.state.Accessor.Email} name="Email" onChange={this.AcessorEmail} placeholder="Email"/><div id="name"></div>
-                <input type='tel' value={this.state.Accessor.Number} name="Number" onChange={this.AcessorNumber} placeholder="Number"/>
+                <input type='text' value={Accessor.Fullname} name="Fullname" onChange={this.AcessorName} placeholder="Fullname"/>
+                <input type='text' value={Accessor.University} name="University" onChange={this.AcessorUniversity} placeholder="University"/>
+                <input type='text' value={Accessor.Email} name="Email" onChange={this.AcessorEmail} placeholder="Email"/><div id="name"></div>
+                <input type='tel' value={Accessor.Number} name="Number" onChange={this.AcessorNumber} placeholder="Number"/>
 
                 </div>
                 </div>
-                <div className="col-sm-4 col-md-4 col-xl-4 col-lg-4 mb-5">
-                <div className="width">
-                <input type='text' value={this.state.Accessor.Fullname} name="Fullname" onChange={this.AcessorName1} placeholder="Fullname"/>
-                <input type='text' value={this.state.Accessor.University} name="University" onChange={this.AcessorUniversity1} placeholder="University"/>
-                <input type='text' value={this.state.Accessor.Email}  name="Email" onChange={this.AcessorEmail1} placeholder="Email"/>
-                <input type='tel' value={this.state.Accessor.Number} name="Number" onChange={this.AcessorNumber1} placeholder="Number"/>
-
+                
+                )}
                 </div>
-                </div>
-                <div className="col-sm-4 col-md-4 col-xl-4 col-lg-4 mb-5">
-                <div className="width">
-                <input type='text'  value={this.state.Accessor.Fullname} name="Fullname" onChange={this.AcessorName2} placeholder="Fullname"/>
-                <input type='text'  value={this.state.Accessor.University} name="University" onChange={this.AcessorUniversity2} placeholder="University"/>
-                <input type='text' value={this.state.Accessor.Email} name="Email" onChange={this.AcessorEmail2} placeholder="Email"/>
-                <input type='tel'  value={this.state.Accessor.Number} name="Number" onChange={this.AcessorNumber2} placeholder="Number"/>
-
-                </div>
-                </div>
-                </div>
+                
                 
                 <button className="btnSave mt-5" type="button" onSubmit= {this.AddAcessor}>Save&Continue</button>
                 
