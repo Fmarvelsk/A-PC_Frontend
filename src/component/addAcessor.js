@@ -22,9 +22,8 @@ class addAcessor extends Component{
     }
      ]
 }
-    AcessorName = (e) => {
-        this.setState({[e.target.name]:e.target.value})
-        
+    AcessorName = (e, key) => {
+        this.setState({[e.target.name] : e.target.value});
     }
     AcessorUniversity = (e) => {
         this.setState({ [e.target.name]:e.target.value})
@@ -55,11 +54,11 @@ class addAcessor extends Component{
                 {this.state.Accessor.map( (Accessor, key) =>
                 <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={key}>
                 <div className="width">
-                <input type='text' value={Accessor.Fullname} name="Fullname" onChange={this.AcessorName} placeholder="Fullname"/>
+                <input type='text' value={Accessor.Fullname} name="Fullname" onChange={this.AcessorName.bind(key)} placeholder="Fullname"/>
                 <input type='text' value={Accessor.University} name="University" onChange={this.AcessorUniversity} placeholder="University"/>
                 <input type='text' value={Accessor.Email} name="Email" onChange={this.AcessorEmail} placeholder="Email"/><div id="name"></div>
                 <input type='tel' value={Accessor.Number} name="Number" onChange={this.AcessorNumber} placeholder="Number"/>
-
+                    {console.log(Accessor)}
                 </div>
                 </div>
                 
