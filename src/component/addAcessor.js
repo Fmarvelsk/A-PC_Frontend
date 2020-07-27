@@ -105,6 +105,7 @@ class addAcessor extends Component {
                 />
               </div>
             </div>
+            
           ))}
           {
 
