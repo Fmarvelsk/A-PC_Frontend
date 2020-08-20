@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 //import { produce } from 'immer';
 
 class addAcessor extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  state = {
         Accessor: [ {
           id: 1,
         Fullname: "",
@@ -29,9 +26,7 @@ class addAcessor extends Component {
       },
     
     ]
-}
-}
-
+  }
   AcessorChange(e, key) {
    
   }
@@ -69,10 +64,14 @@ class addAcessor extends Component {
                   
                   name="Fullname"
                   onChange={(e, id) => { 
-                    const Fullname = e.target.value
-                    this.setState( {Accessor: this.state.Accessor.map(prev => {
-                     console.log(id)})
-                  })} }
+                    const Fullname = e.target.name
+                    this.setState( this.state.Accessor.map(prev =>{
+                      if(prev.id === candidate.id){
+                        const hello ={prev, Fullname}
+                        return hello
+                      } return prev
+                    }
+                      ))} }
                     value={candidate.Fullname}
 
                   placeholder="Fullname"
