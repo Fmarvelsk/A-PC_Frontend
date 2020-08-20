@@ -70,13 +70,13 @@ class addAcessor extends Component {
                   name="Fullname"
                   onChange={(e) => { 
                     const Fullname = e.target.value
-                    this.setState( prev => {
-                  
-                    prev.map(x => x.id === candidate.id ? {
-                      ...x,
-                      Fullname
-                    } : x) }
-                  )}}
+                    this.setState( {Accessor: this.state.Accessor.map(prev => {
+                      prev.map(x => x.id === candidate.id ? {
+                        ...x,
+                        Fullname
+                      } .x)
+                    })
+                  })} }
                     value={candidate.Fullname}
 
                   placeholder="Fullname"
