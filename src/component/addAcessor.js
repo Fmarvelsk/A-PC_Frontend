@@ -68,14 +68,10 @@ class addAcessor extends Component {
                   type="text"
                   
                   name="Fullname"
-                  onChange={(e) => { 
+                  onChange={(e, id) => { 
                     const Fullname = e.target.value
                     this.setState( {Accessor: this.state.Accessor.map(prev => {
-                      prev.map(x => x.id === candidate.id ? {
-                        ...x,
-                        Fullname
-                      } .x)
-                    })
+                     console.log(id)})
                   })} }
                     value={candidate.Fullname}
 
