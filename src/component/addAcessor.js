@@ -1,49 +1,39 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+//import { produce } from 'immer';
 
 class addAcessor extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      Accessor1: {
+        Accessor: [ {
+          id: 1,
         Fullname: "",
         University: "",
         Email: "",
         Number: "",
       },
-
-      Accessor2: {
+{
+        id: 2, 
         Fullname: "",
         University: "",
         Email: "",
         Number: "",
       },
-
-      Accessor3: {
+{
+        id: 3,
         Fullname: "",
         University: "",
         Email: "",
         Number: "",
       },
-    };
-    this.AcessorChange = this.AcessorChange.bind(this);
-  }
+    
+    ]
+}
+}
 
-  AcessorChange(key, e) {
-    const value = e.target.value;
-    const obj = e.target.name;
-    this.setState((prev) => ({
-        // ...[`prev.Accessor${key+1}`] this is where the issue is
-        // the value of the Accessor field changes, but i cant get the value of
-        //the remaining fields
-
-        //Unless u want to uncomment all the other jsx code, then replace
-        //  ...[`prev.Accessor${key+1}`] 
-        //with
-        // ...prev.Accessor1
-        //then do for each of the Accessor objects
-      [`Accessor${key+1}`]:  { ...[`prev.Accessor${key+1}`], [obj]: value },
-    }));
+  AcessorChange(e, key) {
+   
   }
   addAddAcessor= (e) => {
     e.preventDefault()
@@ -71,14 +61,24 @@ class addAcessor extends Component {
         <form onSubmit={this.AddAcessor}>
         <div className="row">
         
-          {Object.values(this.state).map((candidate, key) => (
-            <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={key}>
+          {this.state.Accessor.map((candidate, key) => (
+            <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={candidate.id}>
               <div className="width">
                 <input
                   type="text"
-                  value={candidate.Fullname}
+                  
                   name="Fullname"
-                  onChange={(e) => this.AcessorChange(key, e)}
+                  onChange={(e) => { 
+                    const Fullname = e.target.value
+                    this.setState( prev => {
+                  
+                    prev.map(x => x.id === candidate.id ? {
+                      ...x,
+                      Fullname
+                    } : x) }
+                  )}}
+                    value={candidate.Fullname}
+
                   placeholder="Fullname"
                 />
                 <input
