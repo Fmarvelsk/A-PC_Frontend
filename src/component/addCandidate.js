@@ -52,7 +52,7 @@ class addCandidate extends Component{
             <div className="container container-fluid padding">
             <form onSubmit= {this.addCandidate} className="paddingf">
             <input type="text" 
-            value={this.state.Surname} name="Surname"
+            value={this.state.surname} name="surname"
             onChange={this.onchangeEvent} placeholder='Surname'/>
             <input type="text" 
             value={this.state.otherName} name="otherName"
@@ -69,7 +69,7 @@ class addCandidate extends Component{
             <input type="text" 
             value={this.state.present_level} name="present_level"
             onChange={this.onchangeEventLevel} placeholder='Present Level'/>
-            
+            <button className="btn-addcandidate mt-5" type="button">Add Candidate</button>
             </form>
             </div>
         )

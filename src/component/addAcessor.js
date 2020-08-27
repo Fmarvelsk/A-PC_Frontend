@@ -1,123 +1,93 @@
-import React, { Component } from 'react';
-//import { produce } from 'immer';
+import React, {useState} from 'react';
 
-class addAcessor extends Component {
-  state = {
-        Accessor: [ {
-          id: 1,
-        Fullname: "",
-        University: "",
-        Email: "",
-        Number: "",
-      },
-{
-        id: 2, 
-        Fullname: "",
-        University: "",
-        Email: "",
-        Number: "",
-      },
-{
-        id: 3,
-        Fullname: "",
-        University: "",
-        Email: "",
-        Number: "",
-      },
-    
-    ]
-  }
-  AcessorChange(e, key) {
-   
-  }
-  addAddAcessor= (e) => {
-    e.preventDefault()
-    const newCandidate = {
-        Fullname : this.state.Accessor1.Fullname,
-        University : this.state.Accessor1.University,
-        Email : this.state.Accessor1.Email,
-        Number: this.state.Accessor1.Number,
-    }
-    console.log(newCandidate)
-    this.setState({
-        Fullname: "",
-        University: "",
-        Email: "",
-        Number: "",
-    })
-}
 
-  render() {
-    return (
-      <div className="paddin">
-        <div className="candidate mt-5">
-          <h3>Candidate name</h3>
-        </div>
-        <form onSubmit={this.AddAcessor}>
-        <div className="row">
-        
-          {this.state.Accessor.map((candidate, key) => (
-            <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={candidate.id}>
-              <div className="width">
-                <input
-                  type="text"
-                  
-                  name="Fullname"
-                  onChange={(e, id) => { 
-                    const Fullname = e.target.name
-                    this.setState( this.state.Accessor.map(prev =>{
-                      if(prev.id === candidate.id){
-                        const hello ={prev, Fullname}
-                        return hello
-                      } return prev
-                    }
-                      ))} }
-                    value={candidate.Fullname}
+const AddAcessor =  (props) => {
+    const [Accessor, newAcessor] = useState([
+        {id: 1, Fullname : '', University: '', Email: '', Number:''},
+        {id: 2, Fullname : '', University: '', Email: '', Number:''},
+        {id: 3, Fullname : '', University: '', Email: '', Number:''}
+        ]);
+     return(
+                <div>
+                <div className="candidate mt-5">
+                <h3>Candidate name</h3>
+                </div>
+                <div className="row">
+                {Accessor.map( (Accessor, key) =>
+                <div className="col-sm-4 col-md-4 col-xl-4 mb-5" key={Accessor.id}>
+                <div className="width">
+                <input type='text' value={Accessor.Fullname} 
+                name="Fullname"
+                 onChange={ e => {
+                     const Fullname = e.target.value
+                     newAcessor((result)=> result.map(x => x.id === Accessor.id ? {
+                       ...x,
+                       Fullname
+                     } :x )
+                     )
+                     
+                 }} 
+                 placeholder="Fullname"/>
+                <input type='text' value={Accessor.University} 
+                name="University"
+                onChange={e => {
+                    const University = e.target.value
+                    newAcessor((result)=> result.map(y => y.id === Accessor.id ? {
+                      ...y,
+                      University
+                    } :y )
+                    )
+                    
+                }}
+                  placeholder="University"/>
+                <input type='text' value={Accessor.Email} 
+                name="Email" onChange={ e => {
+                    const Email = e.target.value
+                    newAcessor((result)=> result.map(z => z.id === Accessor.id ? {
+                      ...z,
+                      
+                      Email
+                    } :z )
+                    )
+                    
+                }} 
+                placeholder="Email"/>
+                
+                <input type='tel' value={Accessor.Number} 
+                name="Number" 
+                onChange={e => {
+                    const Number = e.target.value
+                    newAcessor((result)=> result.map(x => x.id === Accessor.id ? {
+                      ...x,
+                      Number
+                    } :x )
+                    )
+                    
+                }}
+                 placeholder="Number"/>
+                   
+                </div>
+                </div>
+                
+                )}
+                
+                </div>
+                
+                
+                <button className="btnSave mt-5" type="button" 
+                onClick= {e => { e.preventDefault()
+                    console.log(
+                        JSON.stringify(Accessor)
+                    )
+                   
+                    props.history.push('/')
+                   
+                }
+                }>Save&Continue</button>
+                
+                </div>
+            )
+        }
 
-                  placeholder="Fullname"
-                />
-                <input
-                  type="text"
-                  value={candidate.University}
-                  name="University"
-                  onChange={(e) => this.AcessorChange(key, e)}
-                  placeholder="University"
-                />
-                <input
-                  type="text"
-                  value={candidate.Email}
-                  name="Email"
-                  onChange={(e) => this.AcessorChange(key, e)}
-                  placeholder="Email"
-                />
-                <div id="name"></div>
-                <input
-                  type="tel"
-                  value={candidate.Number}
-                  name="Number"
-                  onChange={(e) => this.AcessorChange(key, e)}
-                  placeholder="Number"
-                />
-              </div>
-            </div>
-            
-          ))}
-          {
 
-          }
-         
-        </div>
-
-        <button
-          className="btnSave mt-5"
-          type="submit"
-        >
-          Save&Continue
-        </button>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default addAcessor;
+export default AddAcessor

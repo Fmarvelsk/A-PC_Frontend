@@ -3,7 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import CandidateList from './CandidateList';
 import addCandidate from './addCandidate';
-import addAcessor from './addAcessor'
+import addAcessor from './addAcessor';
+import viewCandiate from './viewCandidate'
+
 
 export class Homepage extends Component {
     state = {
@@ -31,8 +33,9 @@ export class Homepage extends Component {
             }
         ]
     }
-    viewCandidate = (e) =>{
-        console.log('clicked')
+    viewCandidate = (id) =>{
+      
+       console.log(id)
     }
     
     render(){
@@ -44,13 +47,15 @@ export class Homepage extends Component {
             <Route path="/home/cand" render= { props =>
                 <React.Fragment>
                 <CandidateList candidate={this.state.candidate} viewCandidate={this.viewCandidate}/>
-                {console.log(props)}
+
                 </React.Fragment>
             } />
             <Route path="/home/addcandidate" component={addCandidate}/>
             <Route path="/home/addAcessor" component={addAcessor} />
-            </div>
+            <Route path ="/home/viewCandidate" component ={viewCandiate}/>
         
+            </div>
+            
             </>
             </Switch>
         

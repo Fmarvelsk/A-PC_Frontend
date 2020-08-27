@@ -34,10 +34,10 @@ loginUser = (e) => {
             
             <input type="text" name="username" className="loginput"
             value={this.state.username} 
-            onChange={this.enterUser} placeholder="username"/>
+            onChange={this.enterUser} placeholder="username" required/>
             <input type="password" name="password"className="loginput"
             value={this.state.password} 
-            onChange={this.enterPassword} placeholder="password"/>
+            onChange={this.enterPassword} placeholder="password" required/>
             <button className="btnlogin" type="submit">Login</button>
             <div> 
     <span className="psw">Forgot <Link to="/">password?</Link></span>
