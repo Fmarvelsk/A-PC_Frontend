@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 
 
-const AddAcessor =  () => {
+const AddAcessor =  (props) => {
     const [Accessor, newAcessor] = useState([
         {id: 1, Fullname : '', University: '', Email: '', Number:''},
         {id: 2, Fullname : '', University: '', Email: '', Number:''},
         {id: 3, Fullname : '', University: '', Email: '', Number:''}
         ]);
      return(
-                <div className="paddin">
+                <div>
                 <div className="candidate mt-5">
                 <h3>Candidate name</h3>
                 </div>
@@ -80,6 +80,7 @@ const AddAcessor =  () => {
                         JSON.stringify(Accessor)
                     )
                    
+                    props.history.push('/')
                    
                 }
                 }>Save&Continue</button>

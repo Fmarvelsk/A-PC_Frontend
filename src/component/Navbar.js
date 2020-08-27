@@ -23,7 +23,7 @@ function Navbar (){
           <ul className="navbar-nav ml-lg-auto">
               
               <li className="nav-item">
-              <Link className="nav-link" to="/">Add Candidate</Link></li>
+              <Link className="nav-link" to="/home/addCandidate">Add Candidate</Link></li>
               <li className="nav-item">
               <Link className="nav-link" to="/">View Candidate</Link></li>
               <li className="nav-item">
