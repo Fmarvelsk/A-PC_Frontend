@@ -1,4 +1,4 @@
- A Work on the Appointment and Promotion Criteria (A&PC)
+ A Work on the Appointment and Promotion Criteria (A&PC) using React
  
 In the project directory, you can run:
 
